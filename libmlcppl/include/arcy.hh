@@ -24,6 +24,9 @@ SOFTWARE.
 
 #pragma once
 
+#ifndef __ARCY_INC
+#define __ARCY_INC
+
 // libarchive includes
 #include <archive.h>
 #include <archive_entry.h>
@@ -39,10 +42,11 @@ SOFTWARE.
 #include <list>
 #include <deque>
 
-#ifdef __TEST_PP
+//~ #ifdef __TEST_PP
   #define __OUTFUNC(a) std::cout << #a << std::endl
   #define __OUT(a) std::cout << #a << ": " << a << std::endl
-#endif
+  #define OUT(b) __OUT(b)
+//~ #endif
 
 using namespace std;
 
@@ -172,3 +176,5 @@ namespace ml
     
   };
 }
+
+#endif

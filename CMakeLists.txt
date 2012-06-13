@@ -3,4 +3,7 @@ project(mlcppl2)
 
 find_package(LibArchive REQUIRED)
 
+include_directories("${CMAKE_SOURCE_DIR}/libmlcppl/include")
+
 add_subdirectory("libmlcppl")
+add_subdirectory("test")
