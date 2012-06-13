@@ -46,7 +46,25 @@ namespace ml
     return s;
   }
   
-  //
+  // size stuffs
+  bool arcent::sizeisset()
+  {
+    if (archive_entry_size_is_set(_archive_entry) != 1)
+      return false;
+    else
+      return true;
+  }
   
+  void arcent::setsize(int size)
+  {
+    archive_entry_set_size(_archive_entry, size);
+  }
+  
+  int arcent::getsize()
+  {
+    return archive_entry_size(_archive_entry);
+  }
+  
+  // data writing
   
 }

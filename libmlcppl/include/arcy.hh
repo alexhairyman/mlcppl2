@@ -23,6 +23,7 @@ SOFTWARE.
 */
 
 #pragma once
+
 // libarchive includes
 #include <archive.h>
 #include <archive_entry.h>
@@ -37,6 +38,11 @@ SOFTWARE.
 #include <vector>
 #include <list>
 #include <deque>
+
+#ifdef __TEST_PP
+  #define __OUTFUNC(a) std::cout << #a << std::endl
+  #define __OUT(a) std::cout << #a << ": " << a << std::endl
+#endif
 
 using namespace std;
 
@@ -91,8 +97,10 @@ namespace ml
     
     void setsize(int size);
     int getsize();
+    int figuresize();
+    bool sizeisset();
     
-    void setperms(string perms);
+    void setperms(string perms="0644");
     string getperms();
     
     void setbtime(int time);
@@ -109,7 +117,7 @@ namespace ml
     void write(char * data);
     void write (const char * data);
     
-    archive_entry getarcent();
+    archive_entry* getarcent();
     
   private:
   
@@ -153,6 +161,8 @@ namespace ml
     void setfilename(string filename);
     
   private:
+    arc_fmt_ptr correct_open_func;
+  
     struct archive* _archive;
     
     bool isinitialized;
