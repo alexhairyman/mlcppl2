@@ -1,4 +1,4 @@
-/*
+/* 
 Copyright (c) <2012> alex herrmann (alexhairyman@gmail.com)
 
 Permission is hereby granted, free of charge, to any person 
@@ -23,27 +23,22 @@ SOFTWARE.
 */
 
 /**
- * @mainpage mlcppl2
- * @section first Intro
- * A very small (right now) library, created with
- * the goal of writing first writing a C++ OO libarchive
- * wrapper that was cross platform, with no other
- * dependencies except libarchive and the STL (maybe boost later on)
- * 
- * @section libarchive LibArchive
- * libarchive is A c library, it can be found <a href="https://github.com/libarchive/libarchive"> here </a>
- * It was built to manipulate archives on the Bsd platform and has evolved into a mature,
- * cross-platform, and very useful library, it supports many different types of archives
- * to find out more about for you self you can visit it at the link above. If it is ever
- * updated, and my build breaks, I will try my hardest to get it working again, although
- * it's not as if I'm using any crazy experimental features of the library!
+ * @defgroup EVALIF evaluate if these are necessary
+ * @{
  */
+
+/**
+ * @page ARENEC are these necessary?
+ * Are all these really necessary to keep in the code? or do they just mess everything up?
+ */
+/// @}
 
 #pragma once
 
 #ifndef __ARCY_INC
 #define __ARCY_INC
 
+#include "mlcppl2.hh"
 // libarchive includes
 #include <archive.h>
 #include <archive_entry.h>
@@ -76,8 +71,29 @@ using namespace std;
  */
 namespace ml
 {
-  /// @defgroup arcy Arcy libarchive c++ wrapper
-  /// @{
+  /** 
+   * @defgroup ARCY Arcy libarchive c++ wrapper
+   * @{
+   */
+  
+  /**
+   * @page libarchive LibArchive
+   * libarchive is A c library, it can be found <a href="https://github.com/libarchive/libarchive"> here </a>
+   * It was built to manipulate archives on the Bsd platform and has evolved into a mature,
+   * cross-platform, and very useful library, it supports many different types of archives
+   * to find out more about for you self you can visit it at the link above. If it is ever
+   * updated, and my build breaks, I will try my hardest to get it working again, although
+   * it's not as if I'm using any crazy experimental features of the library!
+   */
+  
+  /**
+   * @page libarchive_notes Notes
+   * LibArchive builds on Windows platforms, and even comes with a CMake file that
+   * produces a working (building) VS2010 solution, so if you can't get the binaries
+   * I will (hopefully, no promises though) include in the future to work, I will
+   * be glad to help you out if necessary
+   */
+  
   /// mode for the archive
   enum MODE
   {
@@ -104,8 +120,10 @@ namespace ml
   // typedef int (*readptr)(struct archive*, const char*, int);
   
   
-  /// @returns correct read pointer
-  /// @brief gets the good read pointer for atype
+  /**
+   * @returns correct read pointer
+   * @brief gets the good read pointer for atype
+   */
   arc_fmt_ptr __delegate_correct_read_ptr(ARC_T atype);
   
   /// @returns correct write pointers
@@ -133,9 +151,15 @@ namespace ml
   };
   
   /**
+   * @defgroup ARCENT archive_entry wrapper
+   * @{
+   */
+  
+  /**
    * @brief An archive entry
    *
-   * Archive entry, no mode is specified because it is not needed
+   * Archive entry, no mode is specified because it is not needed.
+   * this class is the wrapper around libarchive's archive_entry
    */
   class arcent
   {
@@ -182,6 +206,7 @@ namespace ml
      * @todo add documentation
      * @{
      */
+    
     void setperms(string perms);
     string getperms();
     
@@ -222,25 +247,36 @@ namespace ml
     archive_entry* getarcent();
     
   private:
-  
+    
+    /**
+     * @addtogroup EVALIF
+     */
+    /// @{
     stringbuf* _mdata;
     iostream* _dataw;
+    /// @}
+    
     string* _datas;
     
-    string _path;
-    bool _path_set;
+    /// @addtogroup EVALIF
     
-    string _perms;
+    /// @{
+    string _path; ///< path
+    bool _path_set; ///< is path set
     
-    int _size;
-    bool _size_set;
+    string _perms; ///< POSIX permissions
     
-    int _mtime;
-    int _btime;
-    int _ctime;
+    int _size; ///< size 
+    bool _size_set; ///< is size set
+    
+    int _mtime; ///< mod time
+    int _btime; ///< birth time
+    int _ctime; ///< created time
+    /// @}
     
     struct archive_entry* _archive_entry;
   };
+  /// @}
   
   /**
    * @brief An archive file
