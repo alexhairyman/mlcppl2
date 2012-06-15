@@ -104,7 +104,7 @@ namespace ml
     int figuresize();
     bool sizeisset();
     
-    void setperms(string perms="0644");
+    void setperms(string perms);
     string getperms();
     
     void setbtime(int time);
@@ -127,6 +127,7 @@ namespace ml
   
     stringbuf* _mdata;
     iostream* _dataw;
+    string* _datas;
     
     string _path;
     bool _path_set;

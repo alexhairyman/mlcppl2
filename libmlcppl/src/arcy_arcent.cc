@@ -28,6 +28,7 @@ namespace ml
   arcent::arcent()
   {
     _archive_entry = archive_entry_new();
+    _datas = new string();
     _mdata = new stringbuf();
     _dataw = new iostream(_mdata);
 
@@ -66,5 +67,25 @@ namespace ml
   }
   
   // data writing
+  
+  void arcent::addchar(char x)
+  {
+    _mdata->str().push_back(x);
+  }
+  
+  void arcent::write(char *data)
+  {
+    _datas->append(data);
+  }
+  
+  void arcent::write(const char *data)
+  {
+    _datas->append(data);
+  }
+  
+  void arcent::write(string data)
+  {
+    _datas->append(data);
+  }
   
 }

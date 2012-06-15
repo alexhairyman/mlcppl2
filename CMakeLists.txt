@@ -7,3 +7,6 @@ include_directories("${CMAKE_SOURCE_DIR}/libmlcppl/include")
 
 add_subdirectory("libmlcppl")
 add_subdirectory("test")
+
+configure_file("README" "README")
+configure_file("LICENSE" "LICENSE")
