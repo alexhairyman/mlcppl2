@@ -26,5 +26,28 @@ SOFTWARE.
 namespace ml
 {
   
+  void arcfile::initarch(MODE mode, ARC_T type)
+  {
+    _mode = mode;
+    _type = type;
+    if (_mode == M_READ)
+      _archive = archive_read_new();
+    else if (_mode == M_WRITE)
+      _archive = archive_write_new();  
+    
+    if (_type != ARCT_NONE)
+      correct_open_func = get_correct_arcptr(type, mode);
+    
+  }
+
+  arcfile::arcfile(MODE mode)
+  {
+    initarch(mode, ARCT_NONE);
+  }
+  
+  arcfile::arcfile(MODE mode, ARC_T type)
+  {
+    initarch(mode, type);
+  }
   
 }

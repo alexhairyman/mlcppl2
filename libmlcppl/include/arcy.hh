@@ -165,7 +165,9 @@ namespace ml
   {
   public:
     
-    /// @brief sets up the archive_entry object
+    /**
+     * @brief sets up the archive_entry object
+     */
     arcent();
     
     /**
@@ -279,23 +281,44 @@ namespace ml
   /// @}
   
   /**
+   * @defgroup ARCFILE archive wrapper
+   * @{
+   */
+  
+  /**
    * @brief An archive file
    *
    * Maybe in the future I will add a way to switch them so you can
    * change modes
+   * @warning BROKEN!
    */
   class arcfile
   {
   public:
+    
+    /**
+     * @brief create archive with a mode
+     * @param mode mode to use archive with
+     */
     arcfile(MODE mode);
+    
+    /**
+     * @brief create archive with a mode and a type
+     * @param mode mode to use archive with
+     * @param type type to use archive with
+     */
+    arcfile(MODE mode, ARC_T type);
     ~arcfile();
     
     void addentry(arcent entry);
     arcent readentry(int location);
     
+    void settype(ARC_T type);
+    
     void setfilename(string filename);
     
   private:
+    void initarch(MODE mode = M_NONE, ARC_T type = ARCT_NONE);
     arc_fmt_ptr correct_open_func;
   
     struct archive* _archive;
@@ -304,8 +327,11 @@ namespace ml
     bool noerror;
     
     MODE _mode;
-   /// @}
+    ARC_T _type;
+
   };
+  /// @}
+  /// @}
 }
 
 #endif
