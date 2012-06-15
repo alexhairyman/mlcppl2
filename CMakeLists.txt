@@ -10,3 +10,5 @@ add_subdirectory("test")
 
 configure_file("README" "README")
 configure_file("LICENSE" "LICENSE")
+configure_file("doc/mlcppl2.ini" "mlcppl2.dox")
+add_custom_target(doxy doxygen mlcppl2.dox)
