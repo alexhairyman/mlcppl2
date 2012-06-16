@@ -36,7 +36,7 @@ namespace ml
       _archive = archive_write_new();  
     
     if (_type != ARCT_NONE)
-      correct_open_func = get_correct_arcptr(type, mode);
+      correct_open_func = get_correct_arcptr(_type, _mode);
     
   }
 
@@ -48,6 +48,18 @@ namespace ml
   arcfile::arcfile(MODE mode, ARC_T type)
   {
     initarch(mode, type);
+  }
+  
+  void arcfile::addentry(arcent entry)
+  {
+    OFW
+    _ents.push_back(entry);
+  }
+  
+  arcent arcfile::readentry(int location)
+  {
+    OFR
+    return _ents.at(location);
   }
   
 }

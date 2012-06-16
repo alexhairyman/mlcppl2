@@ -1,0 +1,89 @@
+/**
+  @page MAINDOXTEST A simple page
+  Hello all!!
+  This is a test page.
+  I hope you like it.
+ */
+ 
+/**
+  @mainpage mlcppl2
+  @section first Intro
+  A very small (right now) library, created with
+  the goal of writing first writing a C++ OO libarchive
+  wrapper that was cross platform, with no other
+  dependencies except libarchive and the STL (maybe boost later on)
+  Please read the license here: @ref LICENSE
+  
+  @section BUILD Building mlcppl2
+  mlcppl2 requires you to use CMake to build it CMake is an amazing build tool
+  And I would highly recommend it to anyone looking for a great build system!
+ 
+  @section MN_ARCY Arcy
+  Arcy is the initial project in the source tree, more information
+  can be found at it's page at @ref ARCY
+  
+ */
+
+/**
+  @page LICENSE License -- Read this K?
+ Copyright (c) <2012> alex herrmann (alexhairyman@gmail.com)
+ 
+ Permission is hereby granted, free of charge, to any person 
+ obtaining a copy of this software and associated documentation 
+ files (the "Software"), to deal in the Software without 
+ restriction, including without limitation the rights to use, copy, 
+ modify, merge, publish, distribute, sublicense, and/or sell copies 
+ of the Software, and to permit persons to whom the Software is 
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be 
+ included in all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS 
+ BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN 
+ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+ SOFTWARE.
+ */
+ 
+ /**
+  @page ARCY_PP Arcy preprocessor definitions
+  because of the one-way IO, some of the functions can not be used if the mode is
+  not the right one, for example, you can't use addentry while the mode is M_READ
+  @section OFR_D Only For Read
+  Throws an error if the arcfile's mode isn't read
+  @section OFR_W Only For Write
+  Throws an error if the arcfile's mode isn't write
+ */
+ 
+ /**
+  @page libarchive LibArchive
+  libarchive is A c library, it can be found <a href="https://github.com/libarchive/libarchive"> here </a>
+  It was built to manipulate archives on the Bsd platform and has evolved into a mature,
+  cross-platform, and very useful library, it supports many different types of archives
+  to find out more about for you self you can visit it at the link above. If it is ever
+  updated, and my build breaks, I will try my hardest to get it working again, although
+   it's not as if I'm using any crazy experimental features of the library!
+  */
+ 
+/**
+  @page libarchive_plat_notes Platform Notes
+  LibArchive builds on Windows platforms, and even comes with a CMake file that
+  produces a working (building) VS2010 solution, so if you can't get the binaries
+  I will (hopefully, no promises though) include in the future to work. If there is
+  a problem make sure to report it at the github repository under Issues
+ */
+
+/**
+  @defgroup EVALIF evaluate if these are necessary
+  @{
+ */
+
+/**
+  @page ARENEC are these necessary?
+  Are all these really necessary to keep in the code? or do they just mess everything up?
+ */
+/// @}

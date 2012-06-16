@@ -22,16 +22,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-/**
- * @defgroup EVALIF evaluate if these are necessary
- * @{
- */
 
-/**
- * @page ARENEC are these necessary?
- * Are all these really necessary to keep in the code? or do they just mess everything up?
- */
-/// @}
 
 #pragma once
 
@@ -39,6 +30,8 @@ SOFTWARE.
 #define __ARCY_INC
 
 #include "mlcppl2.hh"
+#include <cstdlib>
+
 // libarchive includes
 #include <archive.h>
 #include <archive_entry.h>
@@ -51,50 +44,57 @@ SOFTWARE.
 // STL container includes
 // Do I really need map?
 #include <vector>
-#include <list>
-#include <deque>
 
 //~ #ifdef __TEST_PP
-  #define __OUTFUNC(a) std::cout << #a << std::endl
-  #define __OUT(a) std::cout << #a << ": " << a << std::endl
-  #define OUT(b) __OUT(b)
+#define __OUTFUNC(a) std::cout << #a << std::endl
+#define __OUT(a) std::cout << #a << ": " << a << std::endl
+#define OUT(b) __OUT(b)
 //~ #endif
+
+#define OFR if (_mode != M_READ) throw ERR_BADMODE;
+#define OFW if (_mode != M_WRITE) throw ERR_BADMODE;
+
 
 using namespace std;
 
 /**
- * @brief The main mlcppl namespace
- * 
- * The main namespace where everything can be found
- * As of right now, the std namespace is not modified
- *
+  @brief The main mlcppl namespace
+  
+  The main namespace where everything can be found
+  As of right now, the std namespace is not modified
+ 
  */
 namespace ml
 {
   /** 
-   * @defgroup ARCY Arcy libarchive c++ wrapper
-   * @{
+    @defgroup ARCY Arcy libarchive c++ wrapper
+    @{
    */
   
   /**
-   * @page libarchive LibArchive
-   * libarchive is A c library, it can be found <a href="https://github.com/libarchive/libarchive"> here </a>
-   * It was built to manipulate archives on the Bsd platform and has evolved into a mature,
-   * cross-platform, and very useful library, it supports many different types of archives
-   * to find out more about for you self you can visit it at the link above. If it is ever
-   * updated, and my build breaks, I will try my hardest to get it working again, although
-   * it's not as if I'm using any crazy experimental features of the library!
+    @todo allow arcy to be a two-way (Read & Write) class
+    
+    @page libarchive_mode_notes arcy mode information
+    You will find that you cannot use arcy in a two-way
+    setting yet, I will add it in the future though I hope;
+    
+    @page OTHERARC Other arcy pages
+    @ref libarchive @ref libarchive_plat_notes @ref ARCY_PP
    */
   
-  /**
-   * @page libarchive_notes Notes
-   * LibArchive builds on Windows platforms, and even comes with a CMake file that
-   * produces a working (building) VS2010 solution, so if you can't get the binaries
-   * I will (hopefully, no promises though) include in the future to work, I will
-   * be glad to help you out if necessary
-   */
+  /// enum for the errors specific to arcy
+  /// @todo add an enum for libarchive errors too
+  enum ARC_ERR
+  {
+    ERR_NONE=0, ///< everything is fine, no error
+    ERR_BADMODE = 1 /**< tried to call a function when you shouldn't have, for example, 
+                      you have an arcfile with mode READ and you try to call addentry() */
+  };
   
-  /// mode for the archive
+  /// @brief catches ARC_ERR's
+  void catcherr(ARC_ERR ae);
+
+  /// @brief mode for the archive
   enum MODE
   {
     M_NONE=0, ///< no mode
@@ -102,7 +102,7 @@ namespace ml
     M_WRITE=2 ///< write mode
   };
 
-  /// type of archive, and it's callbacks
+  /// @brief type of archive, and it's callbacks
   enum ARC_T
   {
     ARCT_NONE=0, ///< no archive chosen
@@ -114,15 +114,15 @@ namespace ml
   };
 
   /**
-   * @brief a function pointer for libarchive open() functions
+    @brief a function pointer for libarchive open() functions
    */
   typedef int (*arc_fmt_ptr)(struct archive*);
   // typedef int (*readptr)(struct archive*, const char*, int);
   
   
   /**
-   * @returns correct read pointer
-   * @brief gets the good read pointer for atype
+    @returns correct read pointer
+    @brief gets the good read pointer for atype
    */
   arc_fmt_ptr __delegate_correct_read_ptr(ARC_T atype);
   
@@ -131,82 +131,82 @@ namespace ml
   arc_fmt_ptr __delegate_correct_write_ptr(ARC_T atype);
   
   /**
-   * @brief gets the correct pointer
-   * Will hopefully get the correct pointer
-   * Uses these delegate functions to do the real work
-   * @see __delegate_correct_read_ptr() __delegate_correct_write_ptr()
-   * @param atype specify the type
-   * @param _mode specify the mode
-   * @see ARC_T MODE
+    @brief gets the correct pointer
+    Will hopefully get the correct pointer
+    Uses these delegate functions to do the real work
+    @see __delegate_correct_read_ptr() __delegate_correct_write_ptr()
+    @param atype specify the type
+    @param _mode specify the mode
+    @see ARC_T MODE
    */
   arc_fmt_ptr get_correct_arcptr(ARC_T atype, MODE _mode);
   
-  /// Will specify compression in the future
+  /// @brief Will specify compression in the future
   enum COMP_T
   {
-    COMPT_NONE=0,
-    COMPT_GZIP=1,
-    COMPT_BZIP2=2,
-    COMPT_LZMA=3
+    COMPT_NONE=0, ///< no compression quite yet
+    COMPT_GZIP=1, ///< gzip compression
+    COMPT_BZIP2=2, ///< bzip2 compression
+    COMPT_LZMA=3 ///< lzma/lzip/xz compression
   };
   
   /**
-   * @defgroup ARCENT archive_entry wrapper
-   * @{
+    @defgroup ARCENT archive_entry wrapper
+    @{
    */
   
   /**
-   * @brief An archive entry
-   *
-   * Archive entry, no mode is specified because it is not needed.
-   * this class is the wrapper around libarchive's archive_entry
+    @brief An archive entry
+   
+    Archive entry, no mode is specified because it is not needed.
+    this class is the wrapper around libarchive's archive_entry
    */
   class arcent
   {
   public:
     
     /**
-     * @brief sets up the archive_entry object
+      @brief sets up the archive_entry object
      */
     arcent();
     
     /**
-     * @brief set the pathname in the archive entry
-     * @param path path to set to
+      @brief set the pathname in the archive entry
+      @param path path to set to
      */
     void setpath(string path);
     /**
-     * @brief get the pathname for the archive_entry
-     * @returns a string of the path
+      @brief get the pathname for the archive_entry
+      @returns a string of the path
      */
     string getpath();
     
     /**
-     * @brief set the size
-     * @param size the size to set to
+      @brief set the size
+      @param size the size to set to
      */
     void setsize(int size);
     
     /**
-     * @brief get the size
-     * @returns the size of the archive_entry object
+      @brief get the size
+      @returns the size of the archive_entry object
      */
     int getsize();
     
     /**
-     * @brief figure the size 
-     * @returns the figured size
+      @brief figure the size 
+      @returns the figured size
      */
     int figuresize();
     
     /**
-     * @brief find out if the size is set
+      @brief find out if the size is set
      */
     bool sizeisset();
     
     /** @defgroup POSIX_SPEC POSIX specific stuff for right now
-     * @todo add documentation
-     * @{
+      @todo add documentation
+      @{
      */
     
     void setperms(string perms);
@@ -223,35 +223,35 @@ namespace ml
     /// @}
     
     /**
-     * @brief add a character
+      @brief add a character
      */
     void addchar(char x);
     
     /**
-     * @brief write a std::string
+      @brief write a std::string
      */
     void write(string data);
     
     /**
-     * @brief write a char *
+      @brief write a char *
      */
     void write(char * data);
     
     /**
-     * @brief write a const char*
+      @brief write a const char*
      */
     void write (const char * data);
     
     /**
-     * @brief return the libarchive archive_entry
-     * @returns the libarchive archive_entry
+      @brief return the libarchive archive_entry
+      @returns the libarchive archive_entry
      */
     archive_entry* getarcent();
     
   private:
     
     /**
-     * @addtogroup EVALIF
+      @addtogroup EVALIF
      */
     /// @{
     stringbuf* _mdata;
@@ -281,31 +281,31 @@ namespace ml
   /// @}
   
   /**
-   * @defgroup ARCFILE archive wrapper
-   * @{
+    @defgroup ARCFILE archive wrapper
+    @{
    */
   
   /**
-   * @brief An archive file
-   *
-   * Maybe in the future I will add a way to switch them so you can
-   * change modes
-   * @warning BROKEN!
+    @brief An archive file
+   
+    Maybe in the future I will add a way to switch them so you can
+    change modes
+    @warning BROKEN!
    */
   class arcfile
   {
   public:
     
     /**
-     * @brief create archive with a mode
-     * @param mode mode to use archive with
+      @brief create archive with a mode
+      @param mode mode to use archive with
      */
     arcfile(MODE mode);
     
     /**
-     * @brief create archive with a mode and a type
-     * @param mode mode to use archive with
-     * @param type type to use archive with
+      @brief create archive with a mode and a type
+      @param mode mode to use archive with
+      @param type type to use archive with
      */
     arcfile(MODE mode, ARC_T type);
     ~arcfile();
@@ -321,6 +321,7 @@ namespace ml
     void initarch(MODE mode = M_NONE, ARC_T type = ARCT_NONE);
     arc_fmt_ptr correct_open_func;
   
+    vector<arcent> _ents;
     struct archive* _archive;
     
     bool isinitialized;

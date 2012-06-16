@@ -65,4 +65,13 @@ namespace ml
     else if (_mode == M_WRITE)
       return __delegate_correct_write_ptr(atype);
   }
+  
+  void catcherr(ARC_ERR ae)
+  {
+    if (ae == ERR_BADMODE)
+      {
+        cerr << "BAD MODE FOR ARCFILE " << endl;
+      }
+  }
+  
 }
