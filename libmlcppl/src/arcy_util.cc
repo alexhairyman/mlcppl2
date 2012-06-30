@@ -21,7 +21,7 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
 SOFTWARE.
 */
-
+#define __ARCY_INC
 #include "arcy.hh"
 
 namespace ml
@@ -72,6 +72,19 @@ namespace ml
       {
         cerr << "BAD MODE FOR ARCFILE " << endl;
       }
+  }
+  
+  string readfilename(string filename)
+  {
+    string tempdata;
+    ifstream * read = new ifstream();
+    read->open(filename.c_str());
+    while (read->good())
+    {
+      tempdata.push_back(read->get());
+    }
+    //string finaldata = *tempdata;
+    return tempdata;
   }
   
 }

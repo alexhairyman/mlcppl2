@@ -26,12 +26,14 @@ SOFTWARE.
 
 #pragma once
 
-#ifndef __ARCY_INC
-#define __ARCY_INC
+#ifndef __ARCY
+#define __ARCY
 
+#define __ARCY_INC
 #include "mlcppl2.hh"
 #include <cstdlib>
 
+#ifdef __ARCY_INC
 // libarchive includes
 #include <archive.h>
 #include <archive_entry.h>
@@ -40,13 +42,15 @@ SOFTWARE.
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 
 // STL container includes
 // Do I really need map?
 #include <vector>
 
+#endif
 //~ #ifdef __TEST_PP
-#define __OUTFUNC(a) std::cout << #a << std::endl
+#define O(a) std::cout << a << std::endl
 #define __OUT(a) std::cout << #a << ": " << a << std::endl
 #define OUT(b) __OUT(b)
 //~ #endif
@@ -57,38 +61,45 @@ SOFTWARE.
 
 using namespace std;
 
-/**
-  @brief The main mlcppl namespace
+/** @brief The main mlcppl namespace
   
   The main namespace where everything can be found
-  As of right now, the std namespace is not modified
- 
- */
+  As of right now, the std namespace is not modified */
 namespace ml
 {
-  /** 
-    @defgroup ARCY Arcy libarchive c++ wrapper
-    @{
-   */
+  /** @defgroup ARCY Arcy libarchive c++ wrapper
+    @{ */
   
-  /**
-    @todo allow arcy to be a two-way (Read & Write) class
+  /** @todo allow arcy to be a two-way (Read & Write) class
     
     @page libarchive_mode_notes arcy mode information
     You will find that you cannot use arcy in a two-way
     setting yet, I will add it in the future though I hope;
     
     @page OTHERARC Other arcy pages
-    @ref libarchive @ref libarchive_plat_notes @ref ARCY_PP
-   */
+    @ref libarchive @ref libarchive_plat_notes @ref ARCY_PP */
+  
+  /** @brief erad data from filename into string */
+  string readfilename(string filename);
   
   /// enum for the errors specific to arcy
-  /// @todo add an enum for libarchive errors too
   enum ARC_ERR
   {
     ERR_NONE=0, ///< everything is fine, no error
     ERR_BADMODE = 1 /**< tried to call a function when you shouldn't have, for example, 
                       you have an arcfile with mode READ and you try to call addentry() */
+  };
+  
+  /** @brief libarchive statusi
+    
+    NOTE! I cannot predict exactly what each of these means
+    In any and all given situations! */
+  enum LIBARC_STAT
+  { 
+    ARC_OK = ARCHIVE_OK, ///< Everything is fine
+    ARC_WARN = ARCHIVE_WARN, ///< justa' warning
+    ARC_RET = ARCHIVE_RETRY, ///< Failure, but can be retried
+    ARC_FAT = ARCHIVE_FATAL ///< Oh crap! RUNNNNN!!!!!
   };
   
   /// @brief catches ARC_ERR's
@@ -113,21 +124,17 @@ namespace ml
     ARCT_ISO=5 ///< ISO9660 archive/image
   };
 
-  /**
-    @brief a function pointer for libarchive open() functions
-   */
+  /** @brief a function pointer for libarchive open() functions */
   typedef int (*arc_fmt_ptr)(struct archive*);
   // typedef int (*readptr)(struct archive*, const char*, int);
   
   
-  /**
-    @returns correct read pointer
-    @brief gets the good read pointer for atype
-   */
+  /** @returns correct read pointer
+    @brief gets the good read pointer for atype */
   arc_fmt_ptr __delegate_correct_read_ptr(ARC_T atype);
   
-  /// @returns correct write pointers
-  /// @brief gets the good write pointer
+  /** @returns correct write pointers
+    @brief gets the good write pointer */
   arc_fmt_ptr __delegate_correct_write_ptr(ARC_T atype);
   
   /**
@@ -150,64 +157,51 @@ namespace ml
     COMPT_LZMA=3 ///< lzma/lzip/xz compression
   };
   
-  /**
-    @defgroup ARCENT archive_entry wrapper
-    @{
-   */
+  /** @defgroup ARCENT archive_entry wrapper
+    @{ */
   
-  /**
-    @brief An archive entry
+  /** @brief An archive entry
    
     Archive entry, no mode is specified because it is not needed.
     this class is the wrapper around libarchive's archive_entry
-   */
+    
+    @todo Totally spaced on the read functions :D */
   class arcent
   {
   public:
     
-    /**
-      @brief sets up the archive_entry object
-     */
-    arcent();
+    /** @brief sets up the archive_entry object */
+    arcent(); 
     
-    /**
-      @brief set the pathname in the archive entry
-      @param path path to set to
-     */
+    /** @brief construct from existing archive_entry */
+    arcent(archive_entry* tehentry);
+    
+    /** @brief set the pathname in the archive entry
+      @param path path to set to*/
     void setpath(string path);
-    /**
-      @brief get the pathname for the archive_entry
-      @returns a string of the path
-     */
+     
+    /** @brief get the pathname for the archive_entry
+      @returns a string of the path */
     string getpath();
     
-    /**
-      @brief set the size
-      @param size the size to set to
-     */
+    /** @brief set the size
+      @param size the size to set to */
     void setsize(int size);
     
-    /**
-      @brief get the size
-      @returns the size of the archive_entry object
-     */
+    /** @brief get the size
+      @returns the size of the archive_entry object */
     int getsize();
     
-    /**
-      @brief figure the size 
-      @returns the figured size
-     */
+    /** @brief figure the size 
+      @returns the figured size */
     int figuresize();
     
-    /**
-      @brief find out if the size is set
-     */
+    /** @brief find out if the size is set */
     bool sizeisset();
     
     /** @defgroup POSIX_SPEC POSIX specific stuff for right now
       @todo add documentation
-      @{
-     */
+      @{ */
     
     void setperms(string perms);
     string getperms();
@@ -222,37 +216,27 @@ namespace ml
     int getctime();
     /// @}
     
-    /**
-      @brief add a character
-     */
+    /** @brief add a character */
     void addchar(char x);
     
-    /**
-      @brief write a std::string
-     */
+    /** @brief write a std::string */
     void write(string data);
     
-    /**
-      @brief write a char *
-     */
+    /** @brief write a char * */
     void write(char * data);
     
-    /**
-      @brief write a const char*
-     */
+    /** @brief write a const char* */
     void write (const char * data);
     
-    /**
-      @brief return the libarchive archive_entry
-      @returns the libarchive archive_entry
-     */
+    /** @brief return the libarchive archive_entry
+      @returns the libarchive archive_entry */
     archive_entry* getarcent();
     
   private:
+    /** @brief assign an archive_entry to the arcent */
+    void assign(archive_entry * tehentry);
     
-    /**
-      @addtogroup EVALIF
-     */
+    /** @addtogroup EVALIF */
     /// @{
     stringbuf* _mdata;
     iostream* _dataw;
@@ -280,55 +264,84 @@ namespace ml
   };
   /// @}
   
-  /**
-    @defgroup ARCFILE archive wrapper
-    @{
-   */
+  /** @defgroup ARCFILE archive wrapper
+    @{ */
   
-  /**
-    @brief An archive file
-   
-    Maybe in the future I will add a way to switch them so you can
-    change modes
-    @warning BROKEN!
-   */
+  /** @brief An archive file
+    @todo make read/write
+    @warning BROKEN! */
+  
   class arcfile
   {
   public:
     
-    /**
-      @brief create archive with a mode
-      @param mode mode to use archive with
-     */
+    /** @brief create archive with a mode
+      @param mode mode to use archive with */
     arcfile(MODE mode);
     
-    /**
-      @brief create archive with a mode and a type
+    /** @brief create archive with a mode and a type
       @param mode mode to use archive with
-      @param type type to use archive with
-     */
+      @param type type to use archive with */
     arcfile(MODE mode, ARC_T type);
     ~arcfile();
     
+    /** @brief Adds an entry
+      @param entry the arcent to add */
     void addentry(arcent entry);
+    
+    /** @brief gets an entry
+      @param location the location in the archive */
+    /// @todo make a name based one of sorts
     arcent readentry(int location);
     
+    /** @brief set the type of the archive */
     void settype(ARC_T type);
     
+    /** @brief set the filename of the archive
+     @todo Will I actually ever use this? */
     void setfilename(string filename);
     
+    /** @brief set the data for the archive, only for reading */
+    void setdata(string data);
+    
+    /** @brief sets the data, same as above, but this time with a char* */
+    void setdata(char * data);
+    
+    /** @brief do the reading or the writing */
+    void dozip();
+    
+    /** @brief gathers the entries in a read acrhive */
+    void getentries();
+    
   private:
+    
+    /** @brief string form for reading mostly
+      @todo can I use this for writing too? */
+    string *_data;
+    
+    string _filename; ///< Name of the file
+    
+    /** @brief Initializes archive with mode and type */
     void initarch(MODE mode = M_NONE, ARC_T type = ARCT_NONE);
-    arc_fmt_ptr correct_open_func;
+    
+    /** @brief takes all the archive entries and makes them very nice! */
+    void doeverything();
+    
+    /** @brief the correct libarchive function to open archive for reading/writing */
+    arc_fmt_ptr correct_format_func;
   
+    /** @brief vector of archive entries */
     vector<arcent> _ents;
+    
+    /** @brief the actual libarchive archive struct
+      @todo consider making this obsolete by doing all libarchive stuff at end */
     struct archive* _archive;
     
     bool isinitialized;
     bool noerror;
-    
-    MODE _mode;
-    ARC_T _type;
+
+    MODE _mode; ///< Mode of archive
+    ARC_T _type; ///< Archive Type
 
   };
   /// @}

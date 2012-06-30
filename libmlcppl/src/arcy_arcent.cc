@@ -21,6 +21,7 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
 SOFTWARE.
 */
+#define __ARCY_INC
 #include "arcy.hh"
 
 namespace ml
@@ -31,7 +32,14 @@ namespace ml
     _datas = new string();
     _mdata = new stringbuf();
     _dataw = new iostream(_mdata);
-
+  }
+  
+  arcent::arcent(archive_entry* tehentry)
+  {
+    _archive_entry = archive_entry_clone(tehentry);
+    _datas = new string();
+    _mdata = new stringbuf();
+    _dataw = new iostream(_mdata);
   }
   
   // Path stuffs
@@ -70,7 +78,7 @@ namespace ml
   
   void arcent::addchar(char x)
   {
-    _mdata->str().push_back(x);
+    _datas->push_back(x);
   }
   
   void arcent::write(char *data)
