@@ -87,4 +87,23 @@ namespace ml
     return tempdata;
   }
   
+  int archive_read_string_open(archive * thearchive ,void * clientdata)
+  {
+    arcfile * myarc = ((arcfile *) clientdata);
+  }
+  
+  int archive_string_read_cb(archive * thearc, void * clientdata, void ** buffy)
+  {
+    arcfile * myarc = ((arcfile *) clientdata);
+    rcb_ret tehret = myarc->read_cb();
+    *buffy = (void *) tehret.tehrealzdata;
+    return tehret.howmanyread;
+    
+  }
+  
+  int archive_string_close_cb(archive *thearchive, void *clientdata)
+  {
+    arcfile * myarc = ((arcfile *) clientdata);
+  }
+  
 }

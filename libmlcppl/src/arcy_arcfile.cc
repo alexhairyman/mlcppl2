@@ -29,10 +29,9 @@ namespace ml
   
   void arcfile::dozip()
   {
-    if (_mode = M_READ)
+    if (_mode == M_READ)
       {
-        _data->assign(readfilename(_filename));
-        archive_read_open_memory(_archive, (void*)_data->c_str(), _data->size());
+        
       }
   }
 
@@ -45,7 +44,6 @@ namespace ml
     {
       _temparcent = new arcent(_temphead);
       _ents.push_back(*_temparcent);
-      cout << _temparcent->getpath() << '\n';
       delete _temparcent;
     }
   }
@@ -101,6 +99,25 @@ namespace ml
   void arcfile::setfilename(string filename)
   {
     _filename.assign(filename);
+  }
+  
+  char arcfile::readbyte()
+  {
+    return _data->at(_numread);
+    _numread++;
+  }
+
+  rcb_ret arcfile::read_cb()
+  {
+    char tempchar = readbyte();
+    int tempnum = _numread;
+    
+    rcb_ret newret;
+    
+    newret.howmanyread = tempnum;
+    *(newret.tehrealzdata) = tempchar;
+    
+    return newret;
   }
   
 }

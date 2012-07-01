@@ -3,18 +3,19 @@
 #include <iostream>
 #include <boost/filesystem.hpp>
 
-using namespace ml;
 using namespace std;
 using namespace boost::filesystem3;
 
 int main()
 {
-  arcfile * testarc = new arcfile(M_READ, ARCT_USTAR);
+  ml::arcfile * testarc = new ml::arcfile(ml::M_READ, ml::ARCT_USTAR);
   
   if (exists(*(new path("../test1.tar"))))
     cout << "../test1.tar exists" << '\n';
   else
     cout << "../test1.tar does not exist" << '\n';
+  
+  cout << current_path() << '\n';
   
   testarc->setfilename("../test1.tar");
   testarc->dozip();

@@ -29,11 +29,9 @@ SOFTWARE.
 #ifndef __ARCY
 #define __ARCY
 
-#define __ARCY_INC
 #include "mlcppl2.hh"
 #include <cstdlib>
 
-#ifdef __ARCY_INC
 // libarchive includes
 #include <archive.h>
 #include <archive_entry.h>
@@ -48,7 +46,6 @@ SOFTWARE.
 // Do I really need map?
 #include <vector>
 
-#endif
 //~ #ifdef __TEST_PP
 #define O(a) std::cout << a << std::endl
 #define __OUT(a) std::cout << #a << ": " << a << std::endl
@@ -57,7 +54,6 @@ SOFTWARE.
 
 #define OFR if (_mode != M_READ) throw ERR_BADMODE;
 #define OFW if (_mode != M_WRITE) throw ERR_BADMODE;
-
 
 using namespace std;
 
@@ -78,8 +74,12 @@ namespace ml
     
     @page OTHERARC Other arcy pages
     @ref libarchive @ref libarchive_plat_notes @ref ARCY_PP */
-  
-  /** @brief erad data from filename into string */
+
+  /******************************
+   Beginning of the actual meat of the application    
+   ******************************/  
+
+  /** @brief read data from filename into string */
   string readfilename(string filename);
   
   /// enum for the errors specific to arcy
@@ -166,6 +166,10 @@ namespace ml
     this class is the wrapper around libarchive's archive_entry
     
     @todo Totally spaced on the read functions :D */
+  
+  /******************************
+   ARCENT class is here  
+   ******************************/ 
   class arcent
   {
   public:
@@ -193,7 +197,8 @@ namespace ml
     int getsize();
     
     /** @brief figure the size 
-      @returns the figured size */
+      @returns the figured size
+      @todo necessary? */
     int figuresize();
     
     /** @brief find out if the size is set */
@@ -227,6 +232,14 @@ namespace ml
     
     /** @brief write a const char* */
     void write (const char * data);
+    
+    /** @brief read everything into a string 
+      @todo implement */
+    string readall();
+    
+    /** @brief read everything into char array
+      @todo implement */
+    char * readll_ca();
     
     /** @brief return the libarchive archive_entry
       @returns the libarchive archive_entry */
@@ -267,10 +280,19 @@ namespace ml
   /** @defgroup ARCFILE archive wrapper
     @{ */
   
+  struct rcb_ret
+  {
+    int howmanyread;
+    char * tehrealzdata;
+  };
+  
   /** @brief An archive file
     @todo make read/write
     @warning BROKEN! */
   
+  /******************************
+   ARCFILE class is here  
+   ******************************/ 
   class arcfile
   {
   public:
@@ -313,12 +335,34 @@ namespace ml
     /** @brief gathers the entries in a read acrhive */
     void getentries();
     
+    /** @defgroup ARCSPEC Special libarchive things ya need
+      @{ */
+
+    /** @brief reads a single byte */
+    char readbyte();
+    
+    /** @brief read some stuff for the libarchive callbacks */
+    rcb_ret read_cb();
+    
+    /** @brief open callback */
+    int open_cb();
+    
+    /** @brief Close callback */
+    int close_cb();
+    
+    /** @brief how many bytes have been written */
+    int numread();
+    
+    /** @} */
+    
+        
   private:
     
     /** @brief string form for reading mostly
       @todo can I use this for writing too? */
     string *_data;
     
+    int _numread; ///< number of read bytes
     string _filename; ///< Name of the file
     
     /** @brief Initializes archive with mode and type */
@@ -345,6 +389,15 @@ namespace ml
 
   };
   /// @}
+  
+  /** @defgroup SPECFUNCS Special libarchive stuff that I now need
+    @{ */
+  
+  int archive_read_string_open(archive * thearchive, void * clientdata);
+  int archive_string_read_cb(archive * thearchive, void * clientdata, void ** buffy);
+  int archive_string_close_cb(archive * thearchive, void * clientdata);
+  /** @} */
+  
   /// @}
 }
 
