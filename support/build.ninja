@@ -1,0 +1,43 @@
+builddir = bdir/nbuild
+srcdir = libmlcppl/src
+idirs = -I libmlcppl/include
+tstdir = test
+
+libflags = -larchive
+cxxflags = -fPIC
+linkflags = -shared
+
+rule cxx
+  command = g++ $cxxflags $idirs -c $in -o $out
+  description = CXX $out
+
+  
+rule link
+  command = g++ $linkflags -o $out $in $libflags
+  
+rule statarc
+  command = ar crs $out $in
+
+rule e
+  command = echo -n
+  description = "Pick a target"
+
+build $builddir/arcfile.o: cxx $srcdir/arcy_arcfile.cc
+build $builddir/arcent.o: cxx $srcdir/arcy_arcent.cc
+build $builddir/arcutil.o: cxx $srcdir/arcy_util.cc
+
+build obj: phony $builddir/arcfile.o $builddir/arcent.o $builddir/arcutil.o
+
+build $builddir/libarcy.so: link $builddir/arcfile.o $builddir/arcent.o $builddir/arcutil.o
+build $builddir/libarcy.a: statarc $builddir/arcfile.o $builddir/arcent.o $builddir/arcutil.o
+
+build $builddir/arcfile_test: link $tstdir/arcfile_test1.cc
+build $builddir/arcutil_test: link $tstdir/arcutil_test1.cc
+
+build arcy: phony $builddir/libarcy.so
+build statarcy: phony $builddir/libarcy.a
+build test: phony $builddir/arcfile_test $builddir/arcutil_test
+
+build help: e
+
+default help

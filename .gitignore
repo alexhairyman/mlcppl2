@@ -1,2 +1,13 @@
 /build/*
 /build_debug/*
+/nbuild/*
+/jbuild/*
+/bdir/*
+*.user
+*.o
+*.a
+*.so
+*.tar
+*.zip
+*.bz2
+*.gz
