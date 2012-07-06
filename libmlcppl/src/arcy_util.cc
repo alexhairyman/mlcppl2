@@ -87,12 +87,12 @@ namespace ml
     return tempdata;
   }
   
-  int archive_read_string_open(archive * thearchive ,void * clientdata)
+  ssize_t archive_read_string_open(archive * thearchive ,void * clientdata)
   {
     arcfile * myarc = ((arcfile *) clientdata);
   }
   
-  int archive_string_read_cb(archive * thearc, void * clientdata, void ** buffy)
+  int archive_string_read_cb(archive * thearc, void * clientdata, const void ** buffy)
   {
     arcfile * myarc = ((arcfile *) clientdata);
     rcb_ret tehret = myarc->read_cb();
@@ -105,5 +105,6 @@ namespace ml
   {
     arcfile * myarc = ((arcfile *) clientdata);
   }
+  
   
 }

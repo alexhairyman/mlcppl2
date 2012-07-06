@@ -1,0 +1,19 @@
+builddir = jbuild ;
+srcdir = libmlcppl/src ;
+
+HDRS = libmlcppl/include ;
+C++ = g++ ;
+CC = gcc ;
+LINK = g++ ;
+
+C++ $(builddir)/arcfile.o : $(srcdir)/arcy_arcfile.cc ;
+C++ $(builddir)/arcent.o : $(srcdir)/arcy_arcent.cc ;
+C++ $(builddir)/arcutil.o : $(srcdir)/arcy_util.cc ;
+
+teho = $(builddir)/arcfile.o $(builddir)/arcutil.o $(builddir)/arcent.o ;
+
+DEPENDS Objects : $(teho) ;
+
+LibraryFromObjects $(builddir)/libarcy.a : $(teho) ;
+
+Clean clean : $(teho) $(builddir)/libarcy.a ;

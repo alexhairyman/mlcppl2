@@ -27,12 +27,11 @@ SOFTWARE.
 namespace ml
 {
   
+  /** @todo implement all this stuff */
   void arcfile::dozip()
   {
-    if (_mode == M_READ)
-      {
-        
-      }
+#warning "IMPLEMENT THIS CRAPOLA"
+    
   }
 
   void arcfile::getentries()
@@ -62,6 +61,7 @@ namespace ml
     else if (_mode == M_WRITE)
       _archive = archive_write_new();
     
+    archive_read_open(_archive, this, &archive_read_string_open, &archive_string_read_cb, &archive_string_close_cb);
   }
 
   arcfile::arcfile(MODE mode)

@@ -379,7 +379,7 @@ namespace ml
     
     /** @brief the actual libarchive archive struct
       @todo consider making this obsolete by doing all libarchive stuff at end */
-    struct archive* _archive;
+    struct archive * _archive;
     
     bool isinitialized;
     bool noerror;
@@ -394,7 +394,7 @@ namespace ml
     @{ */
   
   int archive_read_string_open(archive * thearchive, void * clientdata);
-  int archive_string_read_cb(archive * thearchive, void * clientdata, void ** buffy);
+  int archive_string_read_cb(archive * thearchive, void * clientdata, const void **buffy);
   int archive_string_close_cb(archive * thearchive, void * clientdata);
   /** @} */
   
