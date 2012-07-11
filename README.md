@@ -25,9 +25,7 @@ but it is the least suported
 * UPDATE v0.0.8a: Added some old stuff from the original mlcppl:
     - I brought over _dirent.cc
     - it is now called derpp
-
+    - Sutil does nothing yet
 * UPDATE v0.0.7a: Added more build systems (ninja, jam)
-
 * UPDATE v0.0.6a: Made great strides in the inner workings, it's starting to come together man!
-
 * UPDATE v0.0.4a: Doxygen documentation started and successful!
