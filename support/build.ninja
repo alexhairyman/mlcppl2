@@ -1,19 +1,20 @@
 builddir = bdir/nbuild
+libdir = bdir/lib
+objdir = bdir/obj
 srcdir = libmlcppl/src
 idirs = -I libmlcppl/include
 tstdir = test
 
-libflags = -larchive
+libflags = -larchive -lboost_system -lboost_filesystem
 cxxflags = -fPIC
 linkflags = -shared
 
 rule cxx
-  command = g++ $cxxflags $idirs -c $in -o $out
+  command = g++ $idirs -c $in -o $out
   description = CXX $out
-
   
 rule link
-  command = g++ $linkflags -o $out $in $libflags
+  command = g++ $idirs -o $out $in $libflags
   
 rule statarc
   command = ar crs $out $in
@@ -22,22 +23,36 @@ rule e
   command = echo -n
   description = "Pick a target"
 
-build $builddir/arcfile.o: cxx $srcdir/arcy_arcfile.cc
-build $builddir/arcent.o: cxx $srcdir/arcy_arcent.cc
-build $builddir/arcutil.o: cxx $srcdir/arcy_util.cc
+# object targets
+build $objdir/arcfile.o: cxx $srcdir/arcy_arcfile.cc
+build $objdir/arcent.o: cxx $srcdir/arcy_arcent.cc
+build $objdir/arcutil.o: cxx $srcdir/arcy_util.cc
+build $objdir/sutil.o: cxx $srcdir/sutil.cc
+build $objdir/derpp.o: cxx $srcdir/derpp.cc
 
-build obj: phony $builddir/arcfile.o $builddir/arcent.o $builddir/arcutil.o
+build obj: phony $objdir/arcfile.o $objdir/arcent.o $objdir/arcutil.o $objdir/sutil.o $
+  $objdir/derpp.o
 
-build $builddir/libarcy.so: link $builddir/arcfile.o $builddir/arcent.o $builddir/arcutil.o
-build $builddir/libarcy.a: statarc $builddir/arcfile.o $builddir/arcent.o $builddir/arcutil.o
+# libraries
+build $libdir/libsutil.a: statarc $objdir/sutil.o
+build $libdir/libderpp.a: statarc $objdir/derpp.o
+build $libdir/libarcy.a: statarc $objdir/arcfile.o $objdir/arcent.o $objdir/arcutil.o
+build $libdir/libmlcppl2.a: statarc $objdir/arcfile.o $objdir/arcent.o $
+  $objdir/arcutil.o $objdir/sutil.o $objdir/derpp.o
 
-build $builddir/arcfile_test: link $tstdir/arcfile_test1.cc
-build $builddir/arcutil_test: link $tstdir/arcutil_test1.cc
+# tests
+build $builddir/arcfile_test: link $tstdir/arcfile_test1.cc $libdir/libarcy.a
+build $builddir/arcutil_test: link $tstdir/arcutil_test1.cc $libdir/libarcy.a
 
-build arcy: phony $builddir/libarcy.so
-build statarcy: phony $builddir/libarcy.a
+# phony targets
+build arcy: phony $libdir/libarcy.a
+build sutil: phony $libdir/libsutil.a
+build derpp: phony $libdir/libderpp.a
+build mlcppl2: phony $libdir/libmlcppl2.a
+
 build test: phony $builddir/arcfile_test $builddir/arcutil_test
+build all: phony $libdir/libarcy.a $libdir/libsutil.a $libdir/libderpp.a
 
+# help target
 build help: e
-
 default help

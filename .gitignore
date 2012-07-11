@@ -3,7 +3,9 @@
 /nbuild/*
 /jbuild/*
 /bdir/*
-*.user
+
+CMakeLists.txt.user
+*.autosave
 *.o
 *.a
 *.so
