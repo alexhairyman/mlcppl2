@@ -9,7 +9,7 @@
   @mainpage mlcppl2
   @section first Intro
   A very small (right now) library, created with
-  the goal of writing first writing a C++ OO libarchive
+  the goal of first writing a C++ libarchive
   wrapper that was cross platform, with no other
   dependencies except libarchive and the STL (maybe boost later on)
   Please read the license here: @ref LICENSE
