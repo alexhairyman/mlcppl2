@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>My Project: mlcppl2</title>
+<title>My Project: Special libarchive stuff that I now need</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -35,7 +35,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
@@ -75,20 +75,106 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">mlcppl2 </div>  </div>
-</div><!--header-->
+<div class="title">Special libarchive stuff that I now need</div>  </div>
+<div class="ingroups"><a class="el" href="group__ARCY.html">Arcy libarchive c++ wrapper</a></div></div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="first"></a>
-Intro</h1>
-<p>A very small (right now) library, created with the goal of first writing a C++ libarchive wrapper that was cross platform, with no other dependencies except libarchive and the STL (maybe boost later on) Please read the license here: <a class="el" href="LICENSE.html">License -- Read this K?</a></p>
-<h1><a class="anchor" id="BUILD"></a>
-Building mlcppl2</h1>
-<p>mlcppl2 requires you to use CMake to build it CMake is an amazing build tool And I would highly recommend it to anyone looking for a great build system!</p>
-<h1><a class="anchor" id="MN_ARCY"></a>
-Arcy</h1>
-<p>Arcy is the initial project in the source tree, more information can be found at it's page at <a class="el" href="group__ARCY.html">Arcy libarchive c++ wrapper</a> </p>
-</div></div><!-- contents -->
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga185c7c8ef8ba058895cce3f15b31e12f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SPECFUNCS.html#ga185c7c8ef8ba058895cce3f15b31e12f">ml::archive_read_string_open</a> (archive *thearchive, void *clientdata)</td></tr>
+<tr class="memitem:ga01a85e5d547f37775d84aa9aeb1dfb25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SPECFUNCS.html#ga01a85e5d547f37775d84aa9aeb1dfb25">ml::archive_string_read_cb</a> (archive *thearchive, void *clientdata, const void **buffy)</td></tr>
+<tr class="memitem:gaaf15c8a8a3a468c96c3a712f0a3c6f0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SPECFUNCS.html#gaaf15c8a8a3a468c96c3a712f0a3c6f0d">ml::archive_string_close_cb</a> (archive *thearchive, void *clientdata)</td></tr>
+</table>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<h2>Function Documentation</h2>
+<a class="anchor" id="ga185c7c8ef8ba058895cce3f15b31e12f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ml::archive_read_string_open </td>
+          <td>(</td>
+          <td class="paramtype">archive *&#160;</td>
+          <td class="paramname"><em>thearchive</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>clientdata</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="gaaf15c8a8a3a468c96c3a712f0a3c6f0d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ml::archive_string_close_cb </td>
+          <td>(</td>
+          <td class="paramtype">archive *&#160;</td>
+          <td class="paramname"><em>thearchive</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>clientdata</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ga01a85e5d547f37775d84aa9aeb1dfb25"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ml::archive_string_read_cb </td>
+          <td>(</td>
+          <td class="paramtype">archive *&#160;</td>
+          <td class="paramname"><em>thearchive</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>clientdata</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void **&#160;</td>
+          <td class="paramname"><em>buffy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Tue Aug 14 2012 11:29:44 for My Project by &#160;<a href="http://www.doxygen.org/index.html">

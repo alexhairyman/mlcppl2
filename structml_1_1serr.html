@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>My Project: mlcppl2</title>
+<title>My Project: ml::serr Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -35,11 +35,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -59,7 +59,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -74,21 +80,77 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespaceml.html">ml</a></li><li class="navelem"><a class="el" href="structml_1_1serr.html">serr</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="structml_1_1serr-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">mlcppl2 </div>  </div>
+<div class="title">ml::serr Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="first"></a>
-Intro</h1>
-<p>A very small (right now) library, created with the goal of first writing a C++ libarchive wrapper that was cross platform, with no other dependencies except libarchive and the STL (maybe boost later on) Please read the license here: <a class="el" href="LICENSE.html">License -- Read this K?</a></p>
-<h1><a class="anchor" id="BUILD"></a>
-Building mlcppl2</h1>
-<p>mlcppl2 requires you to use CMake to build it CMake is an amazing build tool And I would highly recommend it to anyone looking for a great build system!</p>
-<h1><a class="anchor" id="MN_ARCY"></a>
-Arcy</h1>
-<p>Arcy is the initial project in the source tree, more information can be found at it's page at <a class="el" href="group__ARCY.html">Arcy libarchive c++ wrapper</a> </p>
-</div></div><!-- contents -->
+
+<p><code>#include &lt;<a class="el" href="msutil_8hh_source.html">msutil.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1f87b7e9015d9697099db8bb3cbf78c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structml_1_1serr.html#a1f87b7e9015d9697099db8bb3cbf78c4">printmsg</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:af44d2d2c4e10144a4773209f3688d07c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structml_1_1serr.html#af44d2d2c4e10144a4773209f3688d07c">serrnum</a></td></tr>
+<tr class="memitem:acf873d832ff01fdbca85969aa3761232"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structml_1_1serr.html#acf873d832ff01fdbca85969aa3761232">msg</a></td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<a class="anchor" id="a1f87b7e9015d9697099db8bb3cbf78c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ml::serr::printmsg </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="acf873d832ff01fdbca85969aa3761232"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string ml::serr::msg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af44d2d2c4e10144a4773209f3688d07c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ml::serr::serrnum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>/home/alexhairyman/repo/mlcppl2/libmlcppl/include/<a class="el" href="msutil_8hh_source.html">msutil.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Tue Aug 14 2012 11:29:44 for My Project by &#160;<a href="http://www.doxygen.org/index.html">

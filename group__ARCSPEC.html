@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>My Project: mlcppl2</title>
+<title>My Project: Special libarchive things ya need</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -35,7 +35,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
@@ -75,20 +75,114 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">mlcppl2 </div>  </div>
+<div class="title">Special libarchive things ya need</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="first"></a>
-Intro</h1>
-<p>A very small (right now) library, created with the goal of first writing a C++ libarchive wrapper that was cross platform, with no other dependencies except libarchive and the STL (maybe boost later on) Please read the license here: <a class="el" href="LICENSE.html">License -- Read this K?</a></p>
-<h1><a class="anchor" id="BUILD"></a>
-Building mlcppl2</h1>
-<p>mlcppl2 requires you to use CMake to build it CMake is an amazing build tool And I would highly recommend it to anyone looking for a great build system!</p>
-<h1><a class="anchor" id="MN_ARCY"></a>
-Arcy</h1>
-<p>Arcy is the initial project in the source tree, more information can be found at it's page at <a class="el" href="group__ARCY.html">Arcy libarchive c++ wrapper</a> </p>
-</div></div><!-- contents -->
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gac28360eef1ca0658201a42c7c4ced154"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCSPEC.html#gac28360eef1ca0658201a42c7c4ced154">ml::arcfile::readbyte</a> ()</td></tr>
+<tr class="memdesc:gac28360eef1ca0658201a42c7c4ced154"><td class="mdescLeft">&#160;</td><td class="mdescRight">reads a single byte  <a href="#gac28360eef1ca0658201a42c7c4ced154"></a><br/></td></tr>
+<tr class="memitem:gac29bb1b50a990339f4632aee7f8041bc"><td class="memItemLeft" align="right" valign="top">rcb_ret&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCSPEC.html#gac29bb1b50a990339f4632aee7f8041bc">ml::arcfile::read_cb</a> ()</td></tr>
+<tr class="memdesc:gac29bb1b50a990339f4632aee7f8041bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">read some stuff for the libarchive callbacks  <a href="#gac29bb1b50a990339f4632aee7f8041bc"></a><br/></td></tr>
+<tr class="memitem:ga9c3712f8944ff1f01f8f4b0a9c5c8e7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCSPEC.html#ga9c3712f8944ff1f01f8f4b0a9c5c8e7f">ml::arcfile::open_cb</a> ()</td></tr>
+<tr class="memdesc:ga9c3712f8944ff1f01f8f4b0a9c5c8e7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">open callback  <a href="#ga9c3712f8944ff1f01f8f4b0a9c5c8e7f"></a><br/></td></tr>
+<tr class="memitem:ga28ea5d21ac47bb70fc18a4ba0ed93a1d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCSPEC.html#ga28ea5d21ac47bb70fc18a4ba0ed93a1d">ml::arcfile::close_cb</a> ()</td></tr>
+<tr class="memdesc:ga28ea5d21ac47bb70fc18a4ba0ed93a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close callback.  <a href="#ga28ea5d21ac47bb70fc18a4ba0ed93a1d"></a><br/></td></tr>
+<tr class="memitem:gac4ed282c26b6210e5ef18989d7f65a50"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCSPEC.html#gac4ed282c26b6210e5ef18989d7f65a50">ml::arcfile::numread</a> ()</td></tr>
+<tr class="memdesc:gac4ed282c26b6210e5ef18989d7f65a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">how many bytes have been written  <a href="#gac4ed282c26b6210e5ef18989d7f65a50"></a><br/></td></tr>
+</table>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<h2>Function Documentation</h2>
+<a class="anchor" id="ga28ea5d21ac47bb70fc18a4ba0ed93a1d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ml::arcfile::close_cb </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Close callback. </p>
+
+</div>
+</div>
+<a class="anchor" id="gac4ed282c26b6210e5ef18989d7f65a50"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ml::arcfile::numread </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>how many bytes have been written </p>
+
+</div>
+</div>
+<a class="anchor" id="ga9c3712f8944ff1f01f8f4b0a9c5c8e7f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ml::arcfile::open_cb </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>open callback </p>
+
+</div>
+</div>
+<a class="anchor" id="gac29bb1b50a990339f4632aee7f8041bc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rcb_ret ml::arcfile::read_cb </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>read some stuff for the libarchive callbacks </p>
+
+</div>
+</div>
+<a class="anchor" id="gac28360eef1ca0658201a42c7c4ced154"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char ml::arcfile::readbyte </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>reads a single byte </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Tue Aug 14 2012 11:29:44 for My Project by &#160;<a href="http://www.doxygen.org/index.html">

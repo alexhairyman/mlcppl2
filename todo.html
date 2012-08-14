@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>My Project: mlcppl2</title>
+<title>My Project: Todo List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -35,8 +35,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
@@ -59,7 +59,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -74,20 +73,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">mlcppl2 </div>  </div>
+<div class="title">Todo List </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="first"></a>
-Intro</h1>
-<p>A very small (right now) library, created with the goal of first writing a C++ libarchive wrapper that was cross platform, with no other dependencies except libarchive and the STL (maybe boost later on) Please read the license here: <a class="el" href="LICENSE.html">License -- Read this K?</a></p>
-<h1><a class="anchor" id="BUILD"></a>
-Building mlcppl2</h1>
-<p>mlcppl2 requires you to use CMake to build it CMake is an amazing build tool And I would highly recommend it to anyone looking for a great build system!</p>
-<h1><a class="anchor" id="MN_ARCY"></a>
-Arcy</h1>
-<p>Arcy is the initial project in the source tree, more information can be found at it's page at <a class="el" href="group__ARCY.html">Arcy libarchive c++ wrapper</a> </p>
+<div class="textblock"><dl class="reflist">
+<dt><a class="anchor" id="_todo000001"></a>Page <a class="el" href="group__ARCY.html">arcy mode information</a>  </dt>
+<dd>allow arcy to be a two-way (Read &amp; Write) class </dd>
+<dt><a class="anchor" id="_todo000002"></a>Class <a class="el" href="classml_1_1arcent.html">ml::arcent</a>  </dt>
+<dd>Totally spaced on the read functions :D  </dd>
+<dt><a class="anchor" id="_todo000004"></a>Member <a class="el" href="classml_1_1arcent.html#a900e5ce9df7501273cb48f3e590ffa1d">ml::arcent::figuresize</a>  ()</dt>
+<dd>necessary?  </dd>
+<dt><a class="anchor" id="_todo000006"></a>Member <a class="el" href="classml_1_1arcent.html#a8b923d4462d393c16747789f97044b48">ml::arcent::readall</a>  ()</dt>
+<dd>implement  </dd>
+<dt><a class="anchor" id="_todo000007"></a>Member <a class="el" href="classml_1_1arcent.html#a7921de453acf4414e4066411f19e5207">ml::arcent::readll_ca</a>  ()</dt>
+<dd>implement  </dd>
+<dt><a class="anchor" id="_todo000003"></a>Class <a class="el" href="classml_1_1arcfile.html">ml::arcfile</a>  </dt>
+<dd>make read/write  </dd>
+<dt><a class="anchor" id="_todo000011"></a>Member <a class="el" href="classml_1_1arcfile.html#ab34ed2169ac5757bbbd0261820d932a8">ml::arcfile::_archive</a>  </dt>
+<dd>consider making this obsolete by doing all libarchive stuff at end  </dd>
+<dt><a class="anchor" id="_todo000010"></a>Member <a class="el" href="classml_1_1arcfile.html#a0b184f1fb7d3193eb9f5633c0e955ee8">ml::arcfile::_data</a>  </dt>
+<dd>can I use this for writing too?  </dd>
+<dt><a class="anchor" id="_todo000008"></a>Member <a class="el" href="classml_1_1arcfile.html#a0e6e29b7e7d20a3386e38e7503652e56">ml::arcfile::readentry</a>  (int location)</dt>
+<dd>make a name based one of sorts  </dd>
+<dt><a class="anchor" id="_todo000009"></a>Member <a class="el" href="classml_1_1arcfile.html#ab8a497fbe46c065cff47238b630381c3">ml::arcfile::setfilename</a>  (string filename)</dt>
+<dd>Will I actually ever use this?  </dd>
+<dt><a class="anchor" id="_todo000005"></a>Group <a class="el" href="group__POSIX__SPEC.html">POSIX_SPEC</a>  </dt>
+<dd>add documentation </dd>
+</dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

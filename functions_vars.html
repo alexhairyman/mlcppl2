@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>My Project: mlcppl2</title>
+<title>My Project: Class Members - Variables</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -35,11 +35,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -59,6 +59,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li class="current"><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li><a href="functions.html"><span>All</span></a></li>
+      <li><a href="functions_func.html"><span>Functions</span></a></li>
+      <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
+    </ul>
+  </div>
 </div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -74,21 +88,97 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div class="header">
-  <div class="headertitle">
-<div class="title">mlcppl2 </div>  </div>
-</div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="first"></a>
-Intro</h1>
-<p>A very small (right now) library, created with the goal of first writing a C++ libarchive wrapper that was cross platform, with no other dependencies except libarchive and the STL (maybe boost later on) Please read the license here: <a class="el" href="LICENSE.html">License -- Read this K?</a></p>
-<h1><a class="anchor" id="BUILD"></a>
-Building mlcppl2</h1>
-<p>mlcppl2 requires you to use CMake to build it CMake is an amazing build tool And I would highly recommend it to anyone looking for a great build system!</p>
-<h1><a class="anchor" id="MN_ARCY"></a>
-Arcy</h1>
-<p>Arcy is the initial project in the source tree, more information can be found at it's page at <a class="el" href="group__ARCY.html">Arcy libarchive c++ wrapper</a> </p>
-</div></div><!-- contents -->
+&#160;<ul>
+<li>_archive
+: <a class="el" href="classml_1_1arcfile.html#ab34ed2169ac5757bbbd0261820d932a8">ml::arcfile</a>
+</li>
+<li>_archive_entry
+: <a class="el" href="classml_1_1arcent.html#a3fc5dcf66e2e9cdf75dca805cfb12805">ml::arcent</a>
+</li>
+<li>_btime
+: <a class="el" href="group__EVALIF.html#ga1084e95ab8d9eef7a985b9aa40ab0f16">ml::arcent</a>
+</li>
+<li>_ctime
+: <a class="el" href="group__EVALIF.html#ga3bcdced6fed5b12e9ea817947ccc1ee3">ml::arcent</a>
+</li>
+<li>_data
+: <a class="el" href="classml_1_1arcfile.html#a0b184f1fb7d3193eb9f5633c0e955ee8">ml::arcfile</a>
+</li>
+<li>_datas
+: <a class="el" href="classml_1_1arcent.html#ac99d13c31ee8bf5b090e0f3cd2d1db6b">ml::arcent</a>
+</li>
+<li>_dataw
+: <a class="el" href="group__EVALIF.html#gaf003ea93629924325998dcdcda497234">ml::arcent</a>
+</li>
+<li>_ents
+: <a class="el" href="classml_1_1arcfile.html#ae89ee61f96b8510825e5a5e1b39588e7">ml::arcfile</a>
+</li>
+<li>_filename
+: <a class="el" href="classml_1_1arcfile.html#a9cf6479cd733fd702a04ac4bcdca9bd1">ml::arcfile</a>
+</li>
+<li>_mdata
+: <a class="el" href="group__EVALIF.html#ga4975f4637fd51fff29e8c815e49af910">ml::arcent</a>
+</li>
+<li>_mode
+: <a class="el" href="classml_1_1arcfile.html#a4f05d22952fb8a1cf766906cee216dbf">ml::arcfile</a>
+</li>
+<li>_mtime
+: <a class="el" href="group__EVALIF.html#gaa26249f0cc871bbfe2fd5f27a20239dd">ml::arcent</a>
+</li>
+<li>_numread
+: <a class="el" href="classml_1_1arcfile.html#abf8b54922c28c3f38520baec5eeba274">ml::arcfile</a>
+</li>
+<li>_path
+: <a class="el" href="group__EVALIF.html#ga43d9a085c820eba2e0947b12d0b161de">ml::arcent</a>
+</li>
+<li>_path_set
+: <a class="el" href="group__EVALIF.html#ga19210db686ab00b48e3d36a860227156">ml::arcent</a>
+</li>
+<li>_perms
+: <a class="el" href="group__EVALIF.html#ga596a4d7f3464297833bb3cbffdc93903">ml::arcent</a>
+</li>
+<li>_size
+: <a class="el" href="group__EVALIF.html#ga208d6914354ac2507780170f6193c98d">ml::arcent</a>
+</li>
+<li>_size_set
+: <a class="el" href="group__EVALIF.html#ga02255629ef95396a9fbef9e1db958ab9">ml::arcent</a>
+</li>
+<li>_type
+: <a class="el" href="classml_1_1arcfile.html#a2bc26b38bba46e4bc3dd1241c822f4a5">ml::arcfile</a>
+</li>
+<li>correct_format_func
+: <a class="el" href="classml_1_1arcfile.html#aa64ba9417a93e4e2dd483a5c659179ed">ml::arcfile</a>
+</li>
+<li>cur_path
+: <a class="el" href="classml_1_1derpp.html#accb133cc9bf3251f2f7d75b26fa0c606">ml::derpp</a>
+</li>
+<li>diritr
+: <a class="el" href="classml_1_1derpp.html#a8574f46febd20987d982ebfbb77f1dc8">ml::derpp</a>
+</li>
+<li>dirlistr
+: <a class="el" href="classml_1_1derpp.html#a0fc7d7d3ac3445e9a3c1844d49ee1972">ml::derpp</a>
+</li>
+<li>howmanyread
+: <a class="el" href="structml_1_1rcb__ret.html#ada8d57a4b2ffae260285fb114fadf06b">ml::rcb_ret</a>
+</li>
+<li>isinitialized
+: <a class="el" href="classml_1_1arcfile.html#a713c991ceadc1eb8dc0225e6ff56a7c8">ml::arcfile</a>
+</li>
+<li>msg
+: <a class="el" href="structml_1_1serr.html#acf873d832ff01fdbca85969aa3761232">ml::serr</a>
+</li>
+<li>noerror
+: <a class="el" href="classml_1_1arcfile.html#a2271b48d9ca90fba57ac5aa105ee3993">ml::arcfile</a>
+</li>
+<li>serrnum
+: <a class="el" href="structml_1_1serr.html#af44d2d2c4e10144a4773209f3688d07c">ml::serr</a>
+</li>
+<li>tehrealzdata
+: <a class="el" href="structml_1_1rcb__ret.html#a884bde671683da0b9f8becefec831237">ml::rcb_ret</a>
+</li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Tue Aug 14 2012 11:29:44 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
