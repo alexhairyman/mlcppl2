@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,105 +86,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">arcy.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="mlcppl2_8hh_source.html">mlcppl2.hh</a>&quot;</code><br/>
-<code>#include &lt;cstdlib&gt;</code><br/>
-<code>#include &lt;archive.h&gt;</code><br/>
-<code>#include &lt;archive_entry.h&gt;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;sstream&gt;</code><br/>
-<code>#include &lt;fstream&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
-</div>
+
 <p><a href="arcy_8hh_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classml_1_1arcent.html">ml::arcent</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An archive entry.  <a href="classml_1_1arcent.html#details">More...</a><br/></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structml_1_1rcb__ret.html">ml::rcb_ret</a></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classml_1_1arcfile.html">ml::arcfile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An archive file.  <a href="classml_1_1arcfile.html#details">More...</a><br/></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespaceml"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceml.html">ml</a></td></tr>
-<tr class="memdesc:namespaceml"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main mlcppl namespace. <br/></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a843c3f37c28456c130a6ddc00ca0966b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcy_8hh.html#a843c3f37c28456c130a6ddc00ca0966b">__ARCY</a></td></tr>
-<tr class="memitem:ac45ffb08c004f5481b17043150564cb5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcy_8hh.html#ac45ffb08c004f5481b17043150564cb5">O</a>(a)&#160;&#160;&#160;std::cout &lt;&lt; a &lt;&lt; std::endl</td></tr>
-<tr class="memitem:af5864b0d8b2a2fa55482aa68fa6016f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcy_8hh.html#af5864b0d8b2a2fa55482aa68fa6016f3">__OUT</a>(a)&#160;&#160;&#160;std::cout &lt;&lt; #a &lt;&lt; &quot;: &quot; &lt;&lt; a &lt;&lt; std::endl</td></tr>
-<tr class="memitem:a06359f37a2dbd8d1caf7fd3412e83437"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcy_8hh.html#a06359f37a2dbd8d1caf7fd3412e83437">OUT</a>(b)&#160;&#160;&#160;<a class="el" href="arcy_8hh.html#af5864b0d8b2a2fa55482aa68fa6016f3">__OUT</a>(b)</td></tr>
-<tr class="memitem:afa881b108085553b1ad97cb147ed70f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcy_8hh.html#afa881b108085553b1ad97cb147ed70f8">OFR</a>&#160;&#160;&#160;if (_mode != M_READ) throw ERR_BADMODE;</td></tr>
-<tr class="memitem:a258314621505b066961af62fff12a6c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arcy_8hh.html#a258314621505b066961af62fff12a6c3">OFW</a>&#160;&#160;&#160;if (_mode != M_WRITE) throw ERR_BADMODE;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:ga191ca3b1c7a4f54698928d5eacc49603"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#ga191ca3b1c7a4f54698928d5eacc49603">ml::arc_fmt_ptr</a> )(struct archive *)</td></tr>
-<tr class="memdesc:ga191ca3b1c7a4f54698928d5eacc49603"><td class="mdescLeft">&#160;</td><td class="mdescRight">a function pointer for libarchive open() functions  <a href="group__ARCY.html#ga191ca3b1c7a4f54698928d5eacc49603"></a><br/></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:gaa09305e7a8fe091d48217fbbce3b12d4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#gaa09305e7a8fe091d48217fbbce3b12d4">ml::ARC_ERR</a> { <a class="el" href="group__ARCY.html#ggaa09305e7a8fe091d48217fbbce3b12d4a6461ffd776e7c5c6989144c3cb25a48a">ml::ERR_NONE</a> = 0, 
-<a class="el" href="group__ARCY.html#ggaa09305e7a8fe091d48217fbbce3b12d4a4fe802e76ffd9b8f4ee3f6fd09cd1fff">ml::ERR_BADMODE</a> =  1
- }</td></tr>
-<tr class="memdesc:gaa09305e7a8fe091d48217fbbce3b12d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">enum for the errors specific to arcy  <a href="group__ARCY.html#gaa09305e7a8fe091d48217fbbce3b12d4">More...</a><br/></td></tr>
-<tr class="memitem:gad41428859064cb87e84bf9793e5a2078"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#gad41428859064cb87e84bf9793e5a2078">ml::LIBARC_STAT</a> { <a class="el" href="group__ARCY.html#ggad41428859064cb87e84bf9793e5a2078a845d59b65a8193b7a3e56c68635ad8a6">ml::ARC_OK</a> =  ARCHIVE_OK, 
-<a class="el" href="group__ARCY.html#ggad41428859064cb87e84bf9793e5a2078a9b2d34a05144333abfd29ba347ad03b7">ml::ARC_WARN</a> =  ARCHIVE_WARN, 
-<a class="el" href="group__ARCY.html#ggad41428859064cb87e84bf9793e5a2078ac4a229bbc50ad883d88a5944f28e0271">ml::ARC_RET</a> =  ARCHIVE_RETRY, 
-<a class="el" href="group__ARCY.html#ggad41428859064cb87e84bf9793e5a2078a1fe1f9a1682526bee2f4038643b33975">ml::ARC_FAT</a> =  ARCHIVE_FATAL
- }</td></tr>
-<tr class="memdesc:gad41428859064cb87e84bf9793e5a2078"><td class="mdescLeft">&#160;</td><td class="mdescRight">libarchive statusi  <a href="group__ARCY.html#gad41428859064cb87e84bf9793e5a2078">More...</a><br/></td></tr>
-<tr class="memitem:gac35d1c5cf04664e4d81ad2098090045d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#gac35d1c5cf04664e4d81ad2098090045d">ml::MODE</a> { <a class="el" href="group__ARCY.html#ggac35d1c5cf04664e4d81ad2098090045dac751097493032c42f607fd94b946d810">ml::M_NONE</a> = 0, 
-<a class="el" href="group__ARCY.html#ggac35d1c5cf04664e4d81ad2098090045da01464f5c026a1daa3793e575fa465b15">ml::M_READ</a> = 1, 
-<a class="el" href="group__ARCY.html#ggac35d1c5cf04664e4d81ad2098090045da3fc79f32459b63cbcfdb0d9781e407d6">ml::M_WRITE</a> = 2
- }</td></tr>
-<tr class="memdesc:gac35d1c5cf04664e4d81ad2098090045d"><td class="mdescLeft">&#160;</td><td class="mdescRight">mode for the archive  <a href="group__ARCY.html#gac35d1c5cf04664e4d81ad2098090045d">More...</a><br/></td></tr>
-<tr class="memitem:gaf6c56bdb44baf3c6bc6f68f0d848e2a8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#gaf6c56bdb44baf3c6bc6f68f0d848e2a8">ml::ARC_T</a> { <br/>
-&#160;&#160;<a class="el" href="group__ARCY.html#ggaf6c56bdb44baf3c6bc6f68f0d848e2a8ab5aad845cd95c5b976dd2eca79afe4cf">ml::ARCT_NONE</a> = 0, 
-<a class="el" href="group__ARCY.html#ggaf6c56bdb44baf3c6bc6f68f0d848e2a8a743b12eb25ef52ccb2cab98c73aeaac9">ml::ARCT_ZIP</a> = 1, 
-<a class="el" href="group__ARCY.html#ggaf6c56bdb44baf3c6bc6f68f0d848e2a8ade5086d7e4f244ce95b67c6012538972">ml::ARCT_PAX</a> = 2, 
-<a class="el" href="group__ARCY.html#ggaf6c56bdb44baf3c6bc6f68f0d848e2a8a0a384365ee1dbb606c0d44e9bf76cce1">ml::ARCT_USTAR</a> = 3, 
-<br/>
-&#160;&#160;<a class="el" href="group__ARCY.html#ggaf6c56bdb44baf3c6bc6f68f0d848e2a8ab5a9ef1df632a9c729d9bcfe538d5bbb">ml::ARCT_7Z</a> = 4, 
-<a class="el" href="group__ARCY.html#ggaf6c56bdb44baf3c6bc6f68f0d848e2a8a28fce6e7e010718e5ab2e5a2a4b15505">ml::ARCT_ISO</a> = 5
-<br/>
- }</td></tr>
-<tr class="memdesc:gaf6c56bdb44baf3c6bc6f68f0d848e2a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of archive, and it's callbacks  <a href="group__ARCY.html#gaf6c56bdb44baf3c6bc6f68f0d848e2a8">More...</a><br/></td></tr>
-<tr class="memitem:gae6bf026c388aa3f13b8c21c57a65c5ec"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#gae6bf026c388aa3f13b8c21c57a65c5ec">ml::COMP_T</a> { <a class="el" href="group__ARCY.html#ggae6bf026c388aa3f13b8c21c57a65c5eca0ac03ffbb623d251e699db14cdf50bd2">ml::COMPT_NONE</a> = 0, 
-<a class="el" href="group__ARCY.html#ggae6bf026c388aa3f13b8c21c57a65c5eca5ca3e2b1ca75ed59eba49d26f3cc40da">ml::COMPT_GZIP</a> = 1, 
-<a class="el" href="group__ARCY.html#ggae6bf026c388aa3f13b8c21c57a65c5eca8baad13be6637e5afc9fde9706972de6">ml::COMPT_BZIP2</a> = 2, 
-<a class="el" href="group__ARCY.html#ggae6bf026c388aa3f13b8c21c57a65c5ecaa8160d5889fae5a0863aaf02a7524b7b">ml::COMPT_LZMA</a> = 3
- }</td></tr>
-<tr class="memdesc:gae6bf026c388aa3f13b8c21c57a65c5ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will specify compression in the future.  <a href="group__ARCY.html#gae6bf026c388aa3f13b8c21c57a65c5ec">More...</a><br/></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gae06c74ad1e320a1d3f9bc47d5800141b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#gae06c74ad1e320a1d3f9bc47d5800141b">ml::readfilename</a> (string filename)</td></tr>
-<tr class="memdesc:gae06c74ad1e320a1d3f9bc47d5800141b"><td class="mdescLeft">&#160;</td><td class="mdescRight">read data from filename into string  <a href="group__ARCY.html#gae06c74ad1e320a1d3f9bc47d5800141b"></a><br/></td></tr>
-<tr class="memitem:ga5b612f570286a011e4d99132a11c8acd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#ga5b612f570286a011e4d99132a11c8acd">ml::catcherr</a> (ARC_ERR ae)</td></tr>
-<tr class="memdesc:ga5b612f570286a011e4d99132a11c8acd"><td class="mdescLeft">&#160;</td><td class="mdescRight">catches ARC_ERR's  <a href="group__ARCY.html#ga5b612f570286a011e4d99132a11c8acd"></a><br/></td></tr>
-<tr class="memitem:ga52bd333f77d4c55ed360146ad57a3272"><td class="memItemLeft" align="right" valign="top">arc_fmt_ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#ga52bd333f77d4c55ed360146ad57a3272">ml::__delegate_correct_read_ptr</a> (ARC_T atype)</td></tr>
-<tr class="memdesc:ga52bd333f77d4c55ed360146ad57a3272"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the good read pointer for atype  <a href="group__ARCY.html#ga52bd333f77d4c55ed360146ad57a3272"></a><br/></td></tr>
-<tr class="memitem:ga20d49a4431e8c772bc146bb289be6d29"><td class="memItemLeft" align="right" valign="top">arc_fmt_ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#ga20d49a4431e8c772bc146bb289be6d29">ml::__delegate_correct_write_ptr</a> (ARC_T atype)</td></tr>
-<tr class="memdesc:ga20d49a4431e8c772bc146bb289be6d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the good write pointer  <a href="group__ARCY.html#ga20d49a4431e8c772bc146bb289be6d29"></a><br/></td></tr>
-<tr class="memitem:gabfbb30359f7c6f5612652c79916e44ad"><td class="memItemLeft" align="right" valign="top">arc_fmt_ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ARCY.html#gabfbb30359f7c6f5612652c79916e44ad">ml::get_correct_arcptr</a> (ARC_T atype, MODE _mode)</td></tr>
-<tr class="memdesc:gabfbb30359f7c6f5612652c79916e44ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the correct pointer Will hopefully get the correct pointer Uses these delegate functions to do the real work  <a href="group__ARCY.html#gabfbb30359f7c6f5612652c79916e44ad"></a><br/></td></tr>
-<tr class="memitem:ga185c7c8ef8ba058895cce3f15b31e12f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SPECFUNCS.html#ga185c7c8ef8ba058895cce3f15b31e12f">ml::archive_read_string_open</a> (archive *thearchive, void *clientdata)</td></tr>
-<tr class="memitem:ga01a85e5d547f37775d84aa9aeb1dfb25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SPECFUNCS.html#ga01a85e5d547f37775d84aa9aeb1dfb25">ml::archive_string_read_cb</a> (archive *thearchive, void *clientdata, const void **buffy)</td></tr>
-<tr class="memitem:gaaf15c8a8a3a468c96c3a712f0a3c6f0d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__SPECFUNCS.html#gaaf15c8a8a3a468c96c3a712f0a3c6f0d">ml::archive_string_close_cb</a> (archive *thearchive, void *clientdata)</td></tr>
 </table>
 <h2>Macro Definition Documentation</h2>
 <a class="anchor" id="a843c3f37c28456c130a6ddc00ca0966b"></a>
@@ -199,82 +111,10 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af5864b0d8b2a2fa55482aa68fa6016f3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define __OUT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">a</td><td>)</td>
-          <td>&#160;&#160;&#160;std::cout &lt;&lt; #a &lt;&lt; &quot;: &quot; &lt;&lt; a &lt;&lt; std::endl</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac45ffb08c004f5481b17043150564cb5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define O</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">a</td><td>)</td>
-          <td>&#160;&#160;&#160;std::cout &lt;&lt; a &lt;&lt; std::endl</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afa881b108085553b1ad97cb147ed70f8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OFR&#160;&#160;&#160;if (_mode != M_READ) throw ERR_BADMODE;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a258314621505b066961af62fff12a6c3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OFW&#160;&#160;&#160;if (_mode != M_WRITE) throw ERR_BADMODE;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a06359f37a2dbd8d1caf7fd3412e83437"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OUT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">b</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="arcy_8hh.html#af5864b0d8b2a2fa55482aa68fa6016f3">__OUT</a>(b)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 14 2012 11:29:44 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 14 2012 11:48:15 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
