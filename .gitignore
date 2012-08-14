@@ -1,0 +1,15 @@
+/build/*
+/build_debug/*
+/nbuild/*
+/jbuild/*
+/bdir/*
+
+CMakeLists.txt.user
+*.autosave
+*.o
+*.a
+*.so
+*.tar
+*.zip
+*.bz2
+*.gz
