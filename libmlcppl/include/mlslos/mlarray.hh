@@ -10,9 +10,10 @@ namespace ml
   namespace los
   {
 
-#warning Not safe for use yet
+#warning Not safe for general use yet
 
     /** @todo implement errors when something goes wrong
+     *  @todo figure out how fast it really is, make it more efficient... but how?
      *  @warning is currently only partially safe to use */
 
     /** This class should not be directly used!

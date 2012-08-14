@@ -1,1 +1,1 @@
-add_library(mlslos STATIC "mlstring.cc")
+add_library(mlslos STATIC "mlbasic_char_string.cc")
